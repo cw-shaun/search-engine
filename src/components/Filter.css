@@ -1,0 +1,29 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter{
+    color: #000000
+  }
+  
+  .filter h3 {
+    margin-bottom: 10px;
+  }
+  
+  .filter-option {
+    margin-bottom: 10px;
+  }
+  
+  .filter-option input {
+    margin-right: 10px;
+  }
+  @media (max-width: 768px) {
+    .app-layout {
+      grid-template-columns: 1fr;
+    }
+  
+    .filter-section {
+      margin-bottom: 20px;
+    }
+  }
+    
