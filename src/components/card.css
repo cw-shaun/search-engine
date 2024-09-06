@@ -19,24 +19,26 @@
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin: 0 0 10px 0;
+  color: black;
 }
 
 .card-text {
-  font-size: 1rem;
-  color: #555;
+  font-size: 1.5rem;
+  color: #000000;
+  margin-top: 1px;
 }
 
 .featured-tag {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #ff4757;
+  /* background-color: #ff4757; */
   /* color: black; */
-  background-color: orange;
   padding: 5px 10px;
   font-size: 0.9rem;
+  width: 50%;
   font-weight: bold;
   border-radius: 4px;
 }

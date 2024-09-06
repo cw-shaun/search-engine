@@ -41,20 +41,52 @@ import Filter from './components/filter';
 import './App.css'; // Import your CSS for styling
 import HeaderLine from './components/headerline';
 import FilterWheel from './components/filterwheel';
-
+import { useState, useEffect } from "react";
+import { FilterContext } from './filtercontext';
+// export var FilterContext = React.createContext(0);
 const App = () => {
+  const [cars, setCars] = useState([]);
+  const [filterValue, setFilterValue] = useState("0"); // State to manage the dropdown value
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("api/stocks?fuel=1+2&budget=0-7");
+        console.log(response);
+        // return;
+        const data = await response.json();
+        console.log(data.stocks);
+
+        // Extract the required fields
+        const extractedData = data.stocks.map((car) => ({
+          carName: car.carName,
+          imageUrl: car.imageUrl,
+          makeYear: car.makeYear,
+          km: car.km,
+          kmNumeric: car.kmNumeric,
+          price: car.price,
+          priceNumeric: car.priceNumeric,
+        }));
+
+        setCars(extractedData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   return (
     <div className='main'>
-
       <HeaderLine />
       <div className="app-layout">
         <div className="filter-section">
           <Filter />
         </div>
         <div className='subsection'>
-          <div><FilterWheel/></div>
+          <div><FilterWheel filterValue={filterValue} setFilterValue={setFilterValue}/></div>
           {/* <div className="card-grid-section"> */}
-            <CardGrid />
+            {/* <CardGrid /> */}
+            <CardGrid cars={cars} filterValue={filterValue} />
           {/* </div> */}
         </div>
       </div>
