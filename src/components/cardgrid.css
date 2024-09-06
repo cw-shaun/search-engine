@@ -1,6 +1,9 @@
 .card-grid {
   max-height:500px;
+  min-height: 500px;
+  /* min-w  idth: 515px; */
   overflow-y: auto;  
+  overflow-x: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;

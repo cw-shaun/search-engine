@@ -13,11 +13,17 @@ const sortDescending = (cars) => {
   // setSortedCars(sorted);
   return sorted;
 };
+const fuelFilter = (carArray, activeFilters) => {
+  return carArray.filter(car => activeFilters.includes(car.fuel));
+  // return carArray.filter(function (el) {return el.fuel})
+};
 
 
-const CardGrid = ({cars,filterValue}) => {
+const CardGrid = ({cars,filterValue,activeFilters}) => {
   var carsd=[];
   console.log(filterValue);
+  console.log(activeFilters);
+
   switch(filterValue){
     case "0":
       {
@@ -34,6 +40,9 @@ const CardGrid = ({cars,filterValue}) => {
     }
   }
   console.log(carsd);
+  if(activeFilters.length!=0){
+    carsd=fuelFilter(carsd,activeFilters);
+  }
   return (
     <div className="card-grid">
             {

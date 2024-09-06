@@ -47,6 +47,7 @@ import { FilterContext } from './filtercontext';
 const App = () => {
   const [cars, setCars] = useState([]);
   const [filterValue, setFilterValue] = useState("0"); // State to manage the dropdown value
+  const [activeFilters, setActiveFilters] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -65,6 +66,7 @@ const App = () => {
           kmNumeric: car.kmNumeric,
           price: car.price,
           priceNumeric: car.priceNumeric,
+          fuel:car.fuel,
         }));
 
         setCars(extractedData);
@@ -80,13 +82,13 @@ const App = () => {
       <HeaderLine />
       <div className="app-layout">
         <div className="filter-section">
-          <Filter />
+          <Filter activeFilters={activeFilters} setActiveFilters={setActiveFilters} />
         </div>
         <div className='subsection'>
           <div><FilterWheel filterValue={filterValue} setFilterValue={setFilterValue}/></div>
           {/* <div className="card-grid-section"> */}
             {/* <CardGrid /> */}
-            <CardGrid cars={cars} filterValue={filterValue} />
+            <CardGrid cars={cars} filterValue={filterValue} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
           {/* </div> */}
         </div>
       </div>
