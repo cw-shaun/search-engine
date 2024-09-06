@@ -2,9 +2,11 @@ import React from 'react';
 import './Filter.css'; // Import your CSS for styling
 
 
-const Filter = ({activeFilters,setActiveFilters}) => {
+const Filter = ({activeFilters,setActiveFilters,minPrice,setMinPrice,maxPrice,setMaxPrice}) => {
   const clearFilters = () => {
     setActiveFilters([]); 
+    setMinPrice("");
+    setMaxPrice("");
   };
   const onFilterChange = (event) => {
     const { value, checked } = event.target;
@@ -16,6 +18,14 @@ const Filter = ({activeFilters,setActiveFilters}) => {
       setActiveFilters((prev) => prev.filter((checkbox) => checkbox !== value));
     }
   };
+  const onPriceChange=(event)=>{
+    const min=event.target.value;
+    setMinPrice(min);
+  }
+  const onPriceChangeMax=(event)=>{
+    const maxy=event.target.value;
+    setMaxPrice(maxy);
+  }
   return (
     <div className="filter">
       <div className='filterheader'>
@@ -47,8 +57,8 @@ const Filter = ({activeFilters,setActiveFilters}) => {
       </div>
       <h5>Price Filter</h5>
       <div className="price-filter">
-      <input type="text" placeholder="Min" />
-      <input type="text" placeholder="Max" />
+      <input value={minPrice} type="number" onChange={onPriceChange} placeholder="Min" />
+      <input value={maxPrice} type="number" onChange={onPriceChangeMax} placeholder="Max" />
     </div>
     </div>
   );

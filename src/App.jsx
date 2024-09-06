@@ -48,6 +48,8 @@ const App = () => {
   const [cars, setCars] = useState([]);
   const [filterValue, setFilterValue] = useState("0"); // State to manage the dropdown value
   const [activeFilters, setActiveFilters] = useState([]);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -82,13 +84,14 @@ const App = () => {
       <HeaderLine />
       <div className="app-layout">
         <div className="filter-section">
-          <Filter activeFilters={activeFilters} setActiveFilters={setActiveFilters} />
+          <Filter activeFilters={activeFilters} setActiveFilters={setActiveFilters} 
+          minPrice={minPrice} setMinPrice={setMinPrice} maxPrice={maxPrice} setMaxPrice={setMaxPrice} />
         </div>
         <div className='subsection'>
           <div><FilterWheel filterValue={filterValue} setFilterValue={setFilterValue}/></div>
           {/* <div className="card-grid-section"> */}
             {/* <CardGrid /> */}
-            <CardGrid cars={cars} filterValue={filterValue} activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
+            <CardGrid cars={cars} filterValue={filterValue} activeFilters={activeFilters} setActiveFilters={setActiveFilters} minPrice={minPrice} maxPrice={maxPrice}/>
           {/* </div> */}
         </div>
       </div>
