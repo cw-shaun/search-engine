@@ -45,6 +45,11 @@ const Filter = ({activeFilters,setActiveFilters}) => {
         <input type="checkbox" id="option3" />
         <label htmlFor="option5">Hybrid</label>
       </div>
+      <h5>Price Filter</h5>
+      <div className="price-filter">
+      <input type="text" placeholder="Min" />
+      <input type="text" placeholder="Max" />
+    </div>
     </div>
   );
 };

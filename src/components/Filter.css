@@ -5,7 +5,18 @@
   .filter{
     color: #000000
   }
-
+.price-filter{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  /* box-sizing: border-box; */
+}
+input[type="text"]{
+width: 100px;
+background-color: white;
+outline: 1px solid #ccc;
+color: black;
+}
   .filterheader{
     display: flex;
     justify-content: start;
