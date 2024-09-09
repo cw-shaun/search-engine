@@ -17,7 +17,7 @@ function Card({ title, year,imageUrl,km,price }) {
         paddingRight:"4px",
         fontSize:"10px"
       }}>FEATURED</h6></div>}
-      {<img src={imageUrl?imageUrl:noimageurl} alt={title} className="card-image" />}
+      {<img src={imageUrl?imageUrl:noimageurl} onError={ () => this.img.src = noimageurl} alt={title} className="card-image" />}
       <div className="card-content">
         <p className="card-title">2012, Maruti Suzuki Wagon R 1.0 LXi</p>
         <p className="card-text">Rs. {price}</p>

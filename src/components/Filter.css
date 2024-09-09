@@ -40,9 +40,26 @@ color: black;
     .app-layout {
       grid-template-columns: 1fr;
     }
-  
+  .filter-option label{
+    margin-top: 0px;
+    padding: 0px;
+  }
+  h5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
     .filter-section {
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+    }
+      /* .filter-option {
+        display: flex;
+        justify-content: center;
+      } */
+    .filter-option-container{
+      display: flex;
+      gap: 10px;
+      /* flex-direction: column; */
     }
   }
     

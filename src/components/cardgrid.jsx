@@ -44,7 +44,9 @@ const CardGrid = ({ cars, filterValue, activeFilters, minPrice, maxPrice }) => {
   const maxy = parseFloat(maxPrice) || Infinity;
 
   carsd = carsd.filter(car => car.priceNumeric >= miny && car.priceNumeric <= maxy);
-
+  if(activeFilters.length!=0){
+    carsd=fuelFilter(carsd,activeFilters);
+  }
   return (
     <div className="card-grid">
       {

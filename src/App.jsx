@@ -54,6 +54,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         const response = await fetch("api/stocks?fuel=1+2&budget=0-7");
+        // const response = await fetch("https://dummyjson.com/c/3151-8062-475b-8f20");
         console.log(response);
         // return;
         const data = await response.json();
