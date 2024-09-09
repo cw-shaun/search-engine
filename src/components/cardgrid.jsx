@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from './card';
+import { filterFunction } from './filterFunctions';
 import './cardgrid.css';
+import { filterfunctions } from '../filterfunctions';
 
 const sortAscending = (cars) => {
   const sorted = [...cars].sort((a, b) => a.priceNumeric - b.priceNumeric);
@@ -23,30 +25,32 @@ const CardGrid = ({ cars, filterValue, activeFilters, minPrice, maxPrice }) => {
   var carsd = [];
   console.log(filterValue);
   console.log(activeFilters);
+  // console.log(cars);
 
-  switch (filterValue) {
-    case "0":
-      {
-        carsd = [...cars];
-        break;
-      }
-    case "1": {
-      carsd = [...sortAscending(cars)];
-      break;
-    }
-    case "2": {
-      carsd = [...sortDescending(cars)];
-      break;
-    }
-  }
-  console.log(carsd);
+  // switch (filterValue) {
+  //   case "0":
+  //     {
+  //       carsd = [...cars];
+  //       break;
+  //     }
+  //   case "1": {
+  //     carsd = [...sortAscending(cars)];
+  //     break;
+  //   }
+  //   case "2": {
+  //     carsd = [...sortDescending(cars)];
+  //     break;
+  //   }
+  // }
   const miny = parseFloat(minPrice) || 0;
   const maxy = parseFloat(maxPrice) || Infinity;
+  carsd=filterFunction(filterValue,cars,activeFilters,miny,maxy)
+  // console.log(carsd);
 
-  carsd = carsd.filter(car => car.priceNumeric >= miny && car.priceNumeric <= maxy);
-  if(activeFilters.length!=0){
-    carsd=fuelFilter(carsd,activeFilters);
-  }
+  // carsd = carsd.filter(car => car.priceNumeric >= miny && car.priceNumeric <= maxy);
+  // if(activeFilters.length!=0){
+  //   carsd=fuelFilter(carsd,activeFilters);
+  // }
   return (
     <div className="card-grid">
       {
