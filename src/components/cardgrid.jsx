@@ -2,24 +2,6 @@ import React from 'react';
 import Card from './card';
 import { filterFunction } from './filterFunctions';
 import './cardgrid.css';
-import { filterfunctions } from '../filterfunctions';
-
-const sortAscending = (cars) => {
-  const sorted = [...cars].sort((a, b) => a.priceNumeric - b.priceNumeric);
-  // setSortedCars(sorted);
-  return sorted;
-};
-
-const sortDescending = (cars) => {
-  const sorted = [...cars].sort((a, b) => b.priceNumeric - a.priceNumeric);
-  // setSortedCars(sorted);
-  return sorted;
-};
-const fuelFilter = (carArray, activeFilters) => {
-  return carArray.filter(car => activeFilters.includes(car.fuel));
-  // return carArray.filter(function (el) {return el.fuel})
-};
-
 
 const CardGrid = ({ cars, filterValue, activeFilters, minPrice, maxPrice }) => {
   var carsd = [];
